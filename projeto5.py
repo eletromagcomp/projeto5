@@ -9,14 +9,19 @@ import matplotlib.pyplot as plt
 def F():#Fonte
     return 10**7 
 
-def Factor():
-    return 0.25
+def Factor(caso):
+    if caso == 1:
+        return 0.75
+    if caso == 2:
+        return 1
+    if caso == 3:
+        return 1.25
 
 def omega():
     return 10**8
 
 def alpha():
-    return omega()*Factor()
+    return omega()*Factor(1)
 
 '''
 Escolhendo:
@@ -29,7 +34,6 @@ Escolhendo:
     
     Overdamped
     alpha < omega
-
 '''
 #%% 
 
@@ -43,22 +47,27 @@ v,x = odeint(RLC,[0.0,0.0],t).T
 
 #%% Plot Charge
 
-fontsize = 16
 fig, ax = plt.subplots(figsize=(8, 4))
-ax.set_xlabel('Tempo', fontsize = fontsize)
+
+ax.set(xlabel='Tempo', ylabel='Carga',
+       title=r'Carga $\alpha$ = '+str(Factor(1))+'$\omega_0$')
+
 ax.plot(t,x)
 #ax.legend(loc = 'upper left')
 ax.grid(which='both')
 
-plt.savefig('RLC_Simples.png',dpi=800,bbox_inches='tight')
+plt.savefig('Cargas_RLC_Simples.png',dpi=800,bbox_inches='tight')
 plt.show()
 
 #%% Plot Current
 fig, ax = plt.subplots(figsize=(8, 4))
-ax.set_xlabel('Tempo', fontsize = fontsize)
+
+ax.set(xlabel='Tempo', ylabel='Carga',
+       title=r'Carga $\alpha$ = '+str(Factor(1))+'$\omega_0$')
+
 ax.plot(t,v)
 #ax.legend(loc = 'upper left')
 ax.grid(which='both')
 
-plt.savefig('RLC_Simples.png',dpi=800,bbox_inches='tight')
+plt.savefig('Correntes_RLC_Simples.png',dpi=800,bbox_inches='tight')
 plt.show()
