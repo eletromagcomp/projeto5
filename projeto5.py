@@ -7,18 +7,18 @@ import matplotlib.pyplot as plt
 #%% Variáveis
 
 def F():#Fonte
-    return 10**7 
+    return 10**2
 
 def Factor(caso):
     if caso == 1:
-        return 0.75
+        return 0.25
     if caso == 2:
         return 1
     if caso == 3:
         return 1.25
 
 def omega():
-    return 10**8
+    return 10**4
 
 def alpha():
     return omega()*Factor(1)
@@ -42,7 +42,7 @@ def RLC(Vx, t):
     res = np.array([x,(-2*alpha()*x - omega()**2*V + F())])
     return res
     
-t = np.linspace(0.0,0.6e-6,1001)    
+t = np.linspace(0.0,0.6e-2,1001)    
 v,x = odeint(RLC,[0.0,0.0],t).T
 
 #%% Plot Charge
