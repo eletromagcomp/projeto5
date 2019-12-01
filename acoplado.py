@@ -1,4 +1,9 @@
 #%% Variáveis para o RLC acoplado
+def fontes():
+    F1 = 1
+    F2 = 1
+    return [F1, F2]
+
 def indutancia():
     L1 = 1
     L2 = 1
@@ -34,15 +39,15 @@ def RLC_coupled_inicial():
 def RLC_coupled(QI_coupled, t):
     Q1, Q2, I1, I2 = QI_coupled
     
-    
+    F1, F2 = fontes()
     R1, R2 = resistencia()
     L1, L2 = indutancia()
     C1, C2 = capacitancia()
     M = mutua()
     
-    dI1 = -L2*R1 * I1 + M*R2 *I2 - L2/C1 * Q1 + M/C2 * Q2 
+    dI1 = -L2*R1 * I1 + M*R2 *I2 - L2/C1 * Q1 + M/C2 * Q2 + L2*F2 - M*F1
     dI1 = dI1/(L1*L2 - M**2)
-    dI2 = -M*R1 * I1 + L1*R2 * I2 - M/C1 * Q1 + L2/C2 * Q2
+    dI2 = -M*R1 * I1 + L1*R2 * I2 - M/C1 * Q1 + L2/C2 * Q2 + M*F1 - L1*F2
     dI2 = dI2/(M**2 - L1*L2)
     
     res = [I1, I2, dI1, dI2]
