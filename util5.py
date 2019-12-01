@@ -106,7 +106,7 @@ def Create_GIF(RLC, factors):
         fig_Carga.tight_layout()
         camera_Carga.snap()
         
-        ax_Corrente.plot(RLC.t, I, color='b', lw=4)
+        ax_Corrente.plot(RLC.t, I, color='g', lw=4)
         ax_Corrente.set_xlabel('Tempo', fontsize=fsize)
         ax_Corrente.set_ylabel('Corrente', fontsize=fsize)
         ax_Corrente.legend([r'$\alpha$ = {0:.2f}$\omega_0$'.format(RLC.Fator)], fontsize=fsize)
