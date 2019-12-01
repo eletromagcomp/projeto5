@@ -101,7 +101,7 @@ def simulate_RLC_Coupled():
     ax.plot(t,Q2)
     ax.grid(which='both')
 
-    plt.savefig('Acop_Corrente_R1_' + str(R1) + '_R2_' + str(R2) + '.png',dpi=800,bbox_inches='tight')
+    plt.savefig('Acop_Carga.png',dpi=800,bbox_inches='tight')
     plt.show()
     
     #Plot Corrente
@@ -113,7 +113,7 @@ def simulate_RLC_Coupled():
     ax.plot(t,I2)
     ax.grid(which='both')
 
-    plt.savefig('Acop_Carga_R1_' + str(R1) + '_R2_' + str(R2) + '.png',dpi=800,bbox_inches='tight')
+    plt.savefig('Acop_Corrente.png',dpi=800,bbox_inches='tight')
     plt.show()
 #%%
     
