@@ -36,7 +36,7 @@ class RLC_Simples(object):
 
 class RLC_Acoplado(object):
     def __init__(self):
-        self.M = 1
+        self.k = 0.5
         self.L1 = 1e-2
         self.L2 = 1e-2
         self.R1 = 2e2
@@ -47,6 +47,8 @@ class RLC_Acoplado(object):
         self.F2 = 1 #Fonte 2
         
         self.Fator = 1
+        
+        self.M = self.k*np.sqrt(self.L1*self.L2)
         
         self.Alpha1 = self.R1/(2*self.L1)
         self.Alpha2 = self.R2/(2*self.L2)
